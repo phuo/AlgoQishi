@@ -1,7 +1,10 @@
+/*
+783. Minimum Distance Between BST Nodes
+https://leetcode.com/problems/minimum-distance-between-bst-nodes/
 
-
-// 783. Minimum Distance Between BST Nodes
-//https://leetcode.com/problems/minimum-distance-between-bst-nodes/
+Runtime: 0 ms, faster than 100.00% of C++ online submissions for Minimum Distance Between BST Nodes.
+Memory Usage: 11 MB, less than 70.88% of C++ online submissions for Minimum Distance Between BST Nodes.
+*/
 class Solution {
 public:
 
@@ -29,6 +32,8 @@ public:
 
 //247.  Strobogrammatic Number II
 //https://www.lintcode.com/problem/strobogrammatic-number-ii/description
+//Total runtime 469 ms 
+//Your submission beats 88.09% Submissions!
 class Solution {
 public:
    vector<string> helper(int n, int length){
@@ -59,6 +64,9 @@ public:
 
 //544.  Output Contest Matches
 //https://www.lintcode.com/problem/output-contest-matches/
+//Total runtime 50 ms
+//Your submission beats 84.43% Submissions!
+    
 class Solution {
 public:
      string helper( int n,  vector<string> vec){
@@ -85,9 +93,14 @@ public:
 };
 
 
-//698. Partition to K Equal Sum Subsets
-//https://leetcode.com/problems/partition-to-k-equal-sum-subsets/
+/*
+698. Partition to K Equal Sum Subsets
+https://leetcode.com/problems/partition-to-k-equal-sum-subsets/
 
+Runtime: 36 ms, faster than 37.71% of C++ online submissions for Partition to K Equal Sum Subsets.
+
+Memory Usage: 8.3 MB, less than 74.71% of C++ online submissions for Partition to K Equal Sum Subsets
+*/
 class Solution {
 public:
 
