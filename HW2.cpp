@@ -1,6 +1,9 @@
-
-
-
+/*
+69. Sqrt(x)
+https://leetcode.com/problems/sqrtx/
+Runtime: 8 ms, faster than 51.97% of C++ online submissions for Sqrt(x).
+Memory Usage: 8.4 MB, less than 45.24% of C++ online submissions for Sqrt(x).
+*/
 class Solution {
 public:
     int mySqrt(int x) {
@@ -19,8 +22,9 @@ public:
         return s;
     }
 };
-
 /*
+74. Search a 2D Matrix
+https://leetcode.com/problems/search-a-2d-matrix/
 Runtime: 12 ms, faster than 83.82% of C++ online submissions for Search a 2D Matrix.
 Memory Usage: 10 MB, less than 46.10% of C++ online submissions for Search a 2D Matrix.
 */
@@ -118,5 +122,33 @@ public:
         }
         if (isBadVersion(s)) return s;
         else return e;
+    }
+};
+
+/*
+300. Longest Increasing Subsequence
+https://leetcode.com/problems/longest-increasing-subsequence/
+Runtime: 40 ms, faster than 49.06% of C++ online submissions for Longest Increasing Subsequence.
+Memory Usage: 8.8 MB, less than 9.89% of C++ online submissions for Longest Increasing Subsequence.
+*/
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+     //DP
+     int n = nums.size();
+     if(n<1) return 0;
+
+     vector<int> seqLen(n,1);
+      for(int j=1; j<n; j++){
+
+          for(int i=0; i<j; i++){
+            if(nums[i] < nums[j] ){
+                seqLen[j] = std::max( 1 + seqLen[i], seqLen[j]);
+            }
+          }//end
+      }
+    std::vector<int>::iterator result;
+    result = std::max_element(seqLen.begin(), seqLen.end());
+    return *result;
     }
 };
