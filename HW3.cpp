@@ -201,3 +201,67 @@ private:
         dfs(grid, i, j-1);
     }
 };
+
+
+/*
+Leetcode 127 Word Ladder:
+https://leetcode.com/problems/word-ladder/
+*/
+class Solution {
+public:
+    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+        unordered_set<string> dict(wordList.begin(), wordList.end());
+        queue<string> mQ;
+        mQ.push(beginWord);
+        int ladder = 1;
+        while (!mQ.empty()) {
+            int n = mQ.size();
+            for (int i = 0; i < n; i++) {
+                string word = mQ.front();
+                mQ.pop();
+                if (word == endWord) {
+                    return ladder;
+                }
+
+                for (int j = 0; j < word.size(); j++) {
+                    char c = word[j];
+                    for (int k = 0; k < 26; k++) {
+                        word[j] = 'a' + k;
+                        if (dict.find(word) != dict.end()) {
+                            mQ.push(word);
+                            dict.erase(word);
+                        }
+                     }
+                    word[j] = c;
+                }
+            }
+            ladder++;
+        }
+        return 0;
+    }
+};
+
+/*
+Leetcode 129 Sum Root to Leaf Numbers:
+https://leetcode.com/problems/sum-root-to-leaf-numbers/
+*/
+class Solution {
+public:
+
+    void helper(TreeNode* root, int curSum, int& sum){
+        //stop at next level of leaf, cannot handle root==NULL
+        if(  root==NULL ) return ;
+        curSum = curSum*10 + root->val;
+        if( !root->left && !root->right){
+             sum += curSum;
+        }
+       helper(root->left, curSum, sum);
+       helper(root->right, curSum, sum);
+    }
+
+    int sumNumbers(TreeNode* root) {
+        int sum=0; int curSum=0;
+        helper(root, curSum, sum);
+        return sum;
+    }
+};
