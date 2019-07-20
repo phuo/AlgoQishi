@@ -108,3 +108,24 @@ public:
         return steps[nrow-1][ncol-1];
     }
 };
+
+/*
+45. Jump Game II
+https://leetcode.com/problems/jump-game-ii/submissions/
+*/
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+  
+        int step=0, currEnd=0, currFurthest=nums[0];
+        
+        for(int i=0; i<nums.size()-1; i++){
+            currFurthest = max(currFurthest, nums[i]+i);
+            if(i==currEnd){
+                step++;
+                currEnd = currFurthest;
+            }
+        }
+        return step;
+    }
+};
